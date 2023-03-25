@@ -24,7 +24,7 @@ module.exports = function(credentials, readings) {
 				return agg;
 			}
 			agg.statements.push(`${colName} = ?`)
-			agg.values.push(reading)
+			agg.values.push(colName == "datetime" ? readings[label] : reading)
 			if (colName != "datetime") {
 				agg.statements.push(`${colName}Unit = ?`)
 				agg.values.push(units)
