@@ -25,8 +25,10 @@ module.exports = function(credentials, readings) {
 			}
 			agg.statements.push(`${colName} = ?`)
 			agg.values.push(reading)
-			agg.statements.push(`${colName}Unit = ?`)
-			agg.values.push(units)
+			if (colName != "datetime") {
+				agg.statements.push(`${colName}Unit = ?`)
+				agg.values.push(units)
+			}
 			if (colName == "windDirDeg") {
 				agg.statements.push(`windDirSymbol = ?`)
 				agg.values.push(extra)
