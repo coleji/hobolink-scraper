@@ -26,7 +26,7 @@ module.exports = function(input) {
 					}
 				}
 				return agg;
-			}, { datetime: new Date().toJSON().slice(0, 19).replace('T', ' ')}));
+			}, { datetime: (new Date()).getTime()}));
 		} catch (e) {
 			reject(e)
 		}
