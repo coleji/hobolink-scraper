@@ -12,7 +12,7 @@ module.exports = function(input) {
 					readingNode.childNodes.length == 0
 					? readingNode['_rawText']
 					: readingNode.childNodes[0]['_rawText']
-				)
+				).replaceAll(",","")
 				const units = tr.querySelector(".latest-conditions-info-units").childNodes[0]['_rawText']
 				return { label, reading, units }
 			}).reduce((agg, {label, reading: readingRaw, units}) => {
